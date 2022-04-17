@@ -1,0 +1,5 @@
+spring:
+  message: Payment Simultaion DEV
+
+server:
+  port: 9091
