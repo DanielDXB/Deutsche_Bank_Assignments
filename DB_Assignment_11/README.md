@@ -4,4 +4,6 @@
 <br>
           "/authenticate" has JWT enabled.
 <br>
-          Implemented the 24h "remember me logged in". 
+          Implemented the 24h "remember me logged in".
+<br>
+          Implemented Swagger2. 
