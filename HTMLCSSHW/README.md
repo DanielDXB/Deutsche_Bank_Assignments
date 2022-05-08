@@ -3,7 +3,7 @@
 # Project Overview
 
 Implemented a responsive travelling blog page using HTML, CSS and JS.
-<a href="https://danieldxb.github.io/linkaccs/index.html">Website Link</a>
+<a href="https://danieldxb.github.io/linkaccs/index.html" about="blank">Website Link</a>
 
 # Technology used
 
