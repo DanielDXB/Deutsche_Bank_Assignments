@@ -1,4 +1,4 @@
-# Daniel Bolontoc &copyright; 2022
+# Daniel Bolontoc &copy; 2022
 
 # Project Overview
 
