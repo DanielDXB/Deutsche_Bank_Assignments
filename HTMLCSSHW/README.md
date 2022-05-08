@@ -1,4 +1,4 @@
-### Daniel Bolontoc
+# Daniel Bolontoc &copyright; 2022
 
 # Project Overview
 
@@ -6,7 +6,7 @@ Implemented a responsive travelling blog page using HTML, CSS and JS.
 
 # Technology used
 
-    HTML, CSS, JS, Bootstrap and css3buttongenerator
+    HTML, CSS, JS, Bootstrap 5 and css3buttongenerator
 
 # Components / Styles
 
