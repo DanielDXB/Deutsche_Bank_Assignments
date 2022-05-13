@@ -182,6 +182,7 @@
   
   .content-text {
     margin-top: 80px;
+    text-align : justify;
   }
   
   p {
@@ -189,6 +190,7 @@
     max-width: 780px;
     margin: auto;
   }
+
   
   .footer {
     display: flex;
