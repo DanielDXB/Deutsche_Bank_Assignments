@@ -2,7 +2,8 @@ const modal_open = document.getElementById("open");
 const modal_cancel = document.getElementById("cancel");
 const modal_container = document.getElementById("modal_container");
 const addRandomArticle = document.getElementById("randomArticleGenerator");
-
+let users;
+let posts;
 modal_open.addEventListener("click", () => {
   modal_container.classList.add("show");
 });
@@ -10,6 +11,14 @@ modal_open.addEventListener("click", () => {
 modal_cancel.addEventListener("click", () => {
   modal_container.classList.remove("show");
 });
+
+fetch("https://jsonplaceholder.typicode.com/users")
+  .then((response) => response.json())
+  .then((data) => (users = data));
+
+fetch("https://jsonplaceholder.typicode.com/posts")
+  .then((response) => response.json())
+  .then((data) => (posts = data));
 
 addRandomArticle.addEventListener("click", () => {
   const mussumIpsum = mIpsum({ pNum: 4 });
@@ -19,20 +28,26 @@ addRandomArticle.addEventListener("click", () => {
 
   mainElement.appendChild(articleElement);
 
-  articleElement.innerHTML =
-    '<h1 class="title">The complete guide to explore Trasilvania, with your bike</h1>';
-  articleElement.insertAdjacentHTML(
-    "beforeend",
-    '<ul class="post"><li class="datas">Destination Europe</li><li class="datas">Added by <span class="author">JonnathanMercadina</span></li><li class="datas">July 01, 2018</li></ul>'
-  );
-  articleElement.insertAdjacentHTML(
-    "beforeend",
-    '<div class="buttons-container"><button type="button" class="edit-delete">Edit</button><button type="button" class="edit-delete">Delete</button></div>'
-  );
+  let userId = Math.floor(Math.random() * 10 + 1);
+  console.log(userId);
+  let postTitleFromUserId;
 
-  let imgTemplate = `<img src="https://picsum.photos/${1280}/${720}?dummy=${Math.floor(Math.random() * 100000)}" class="hero-image" alt="Random image"/>`;
-  articleElement.insertAdjacentHTML("beforeend", imgTemplate);
+  for (let p in posts) {
+    if (posts[p].userId == userId) {
+      let postId = Math.floor(Math.random() * (10 * (userId) - 10 * (userId - 1) + 1) + 10 * (userId - 1));
+      postTitleFromUserId = posts[postId].title;
+      break
+    }
+  }
 
-  let textTemplate = `<div class="content-text"><p>${mussumIpsum}</p></div>`;
-  articleElement.insertAdjacentHTML("beforeend", textTemplate);
+  let articleTemplate = `
+  '<h1 class="title">${postTitleFromUserId}</h1><ul class="post"><li class="datas">Destination Europe</li><li class="datas">Added by <span class="author">${
+    users[userId].name
+  }</span></li><li class="datas">July 01, 2018</li></ul>
+  <div class="buttons-container"><button type="button" class="edit-delete">Edit</button><button type="button" class="edit-delete">Delete</button></div>
+  <img src="https://picsum.photos/${1280}/${720}?dummy=${Math.floor(
+    Math.random() * 100000
+  )}" class="hero-image" alt="Random image"/><div class="content-text"><p>${mussumIpsum}</p></div>'
+  `;
+  articleElement.insertAdjacentHTML("beforeend", articleTemplate);
 });
