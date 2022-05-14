@@ -302,6 +302,11 @@
     cursor: pointer;
   }
   
-
-
-  
+  select {
+    border-radius : 50px;
+    font-size: 14px;
+    width: 300px;
+    height: 60px;
+    border: solid #9b9b9b 1px;
+    text-decoration: none;
+  }

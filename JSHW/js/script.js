@@ -21,6 +21,7 @@ fetch("https://jsonplaceholder.typicode.com/posts")
   .then((data) => (posts = data));
 
 addRandomArticle.addEventListener("click", () => {
+  getOption();
   const mussumIpsum = mIpsum({ pNum: 4 });
 
   let mainElement = document.querySelector("main");
@@ -29,7 +30,6 @@ addRandomArticle.addEventListener("click", () => {
   mainElement.appendChild(articleElement);
 
   let userId = Math.floor(Math.random() * 10 + 1);
-  console.log(userId);
   let postTitleFromUserId;
 
   for (let p in posts) {
@@ -51,3 +51,9 @@ addRandomArticle.addEventListener("click", () => {
   `;
   articleElement.insertAdjacentHTML("beforeend", articleTemplate);
 });
+
+function getOption() {
+  var selectElement = document.getElementById('authorSelect').value;
+  console.log(selectElement);
+}
+

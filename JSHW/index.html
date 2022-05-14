@@ -36,7 +36,20 @@
     <!-- NavBar Header-->
 
     <!-- AddArticle Btn -->
-    <div class="addbtn">
+    <div class="addbtn" style="justify-content: space-between;">
+          <select id="authorSelect" name="author">
+            <option value="Random Author">Random Author</option>
+            <option value="Leanne Graham">Leanne Graham</option>
+            <option value="Ervin Howell">Ervin Howell</option>
+            <option value="Clementine Bauch">Clementine Bauch</option>
+            <option value="Patricia Lebsack">Patricia Lebsack</option>
+            <option value="Chelsey Dietrich">Chelsey Dietrich</option>
+            <option value="Mrs. Dennis Schulist">Mrs. Dennis Schulist</option>
+            <option value="Kurtis Weissnat">Kurtis Weissnat</option>
+            <option value="Nicholas Runolfsdottir V">Nicholas Runolfsdottir V</option>
+            <option value="Glenna Reichert">Glenna Reichert</option>
+            <option value="Clementina DuBuque">Clementina DuBuque</option>
+          </select>
       <button class="btn" type="button" id="open">
         <p>+ ADD ARTICLE</p>
       </button>
@@ -55,26 +68,18 @@
         <div class="modal-content">
           <h2 class="title">Add/Edit new article</h2>
           <div class="form">
-            <form action="/action_page.php">
-                <label for="author">Choose an author:</label>
-                <select id="author" name="author">
-                  <option value="author">Random Author</option>
-                  <option value="author">Leanne Graham</option>
-                  <option value="author">Ervin Howell</option>
-                  <option value="author">Clementine Bauch</option>
-                  <option value="author">Patricia Lebsack</option>
-                  <option value="author">Chelsey Dietrich</option>
-                  <option value="author">Mrs. Dennis Schulist</option>
-                  <option value="author">Kurtis Weissnat</option>
-                  <option value="author">Nicholas Runolfsdottir V</option>
-                  <option value="author">Glenna Reichert</option>
-                  <option value="author">Clementina DuBuque</option>
-                </select>
-              </form>
+            <input type="text" class="input" placeholder="Please enter title" />
+            <input type="text" class="input" placeholder="Please enter tag" />
             <input
               type="text"
               class="input"
-              placeholder="Please enter title"
+              placeholder="Please enter author"
+            />
+            <input type="text" class="input" placeholder="Please enter date" />
+            <input
+              type="text"
+              class="input url"
+              placeholder="Please enter image url"
             />
           </div>
           <textarea
