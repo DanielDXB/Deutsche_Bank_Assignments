@@ -21,39 +21,79 @@ fetch("https://jsonplaceholder.typicode.com/posts")
   .then((data) => (posts = data));
 
 addRandomArticle.addEventListener("click", () => {
-  getOption();
-  const mussumIpsum = mIpsum({ pNum: 4 });
+  if (getOption() == "Random Author") {
+    const mussumIpsum = mIpsum({ pNum: 4 });
 
-  let mainElement = document.querySelector("main");
-  let articleElement = document.createElement("article");
+    let mainElement = document.querySelector("main");
+    let articleElement = document.createElement("article");
 
-  mainElement.appendChild(articleElement);
+    mainElement.appendChild(articleElement);
 
-  let userId = Math.floor(Math.random() * 10 + 1);
-  let postTitleFromUserId;
+    let userId = Math.floor(Math.random() * 10 + 1) - 1;
+    let postTitleFromUserId;
 
-  for (let p in posts) {
-    if (posts[p].userId == userId) {
-      let postId = Math.floor(Math.random() * (10 * (userId) - 10 * (userId - 1) + 1) + 10 * (userId - 1));
-      postTitleFromUserId = posts[postId].title;
-      break
+    for (let p in posts) {
+      if (posts[p].userId == userId) {
+        let postId = Math.floor(
+          Math.random() * (10 * userId - 10 * (userId - 1) + 1) +
+            10 * (userId - 1)
+        );
+        postTitleFromUserId = posts[postId].title;
+        break;
+      }
     }
-  }
 
-  let articleTemplate = `
+    let articleTemplate = `
   '<h1 class="title">${postTitleFromUserId}</h1><ul class="post"><li class="datas">Destination Europe</li><li class="datas">Added by <span class="author">${
-    users[userId].name
-  }</span></li><li class="datas">July 01, 2018</li></ul>
+      users[userId].name
+    }</span></li><li class="datas">July 01, 2018</li></ul>
   <div class="buttons-container"><button type="button" class="edit-delete">Edit</button><button type="button" class="edit-delete">Delete</button></div>
   <img src="https://picsum.photos/${1280}/${720}?dummy=${Math.floor(
-    Math.random() * 100000
-  )}" class="hero-image" alt="Random image"/><div class="content-text"><p>${mussumIpsum}</p></div>'
+      Math.random() * 100000
+    )}" class="hero-image" alt="Random image"/><div class="content-text"><p>${mussumIpsum}</p></div>'
   `;
-  articleElement.insertAdjacentHTML("beforeend", articleTemplate);
+    articleElement.insertAdjacentHTML("beforeend", articleTemplate);
+  } else {
+    const mussumIpsum = mIpsum({ pNum: 4 });
+
+    let mainElement = document.querySelector("main");
+    let articleElement = document.createElement("article");
+    mainElement.appendChild(articleElement);
+
+    let userId;
+    for (var u in users) {
+      if (users[u].name == getOption()) {
+        userId = users[u].id;
+        break;
+      }
+    }
+
+    let postTitleFromUserId;
+
+    for (let p in posts) {
+      if (posts[p].userId == userId) {
+        let postId = Math.floor(
+          Math.random() * (10 * userId - 10 * (userId - 1) + 1) +
+            10 * (userId - 1)
+        );
+        postTitleFromUserId = posts[postId].title;
+        break;
+      }
+    }
+
+    let articleTemplate = `
+  '<h1 class="title">${postTitleFromUserId}</h1><ul class="post"><li class="datas">Destination Europe</li><li class="datas">Added by <span class="author">${
+      users[userId - 1].name
+    }</span></li><li class="datas">July 01, 2018</li></ul>
+  <div class="buttons-container"><button type="button" class="edit-delete">Edit</button><button type="button" class="edit-delete">Delete</button></div>
+  <img src="https://picsum.photos/${1280}/${720}?dummy=${Math.floor(
+      Math.random() * 100000
+    )}" class="hero-image" alt="Random image"/><div class="content-text"><p>${mussumIpsum}</p></div>'
+  `;
+    articleElement.insertAdjacentHTML("beforeend", articleTemplate);
+  }
 });
 
 function getOption() {
-  var selectElement = document.getElementById('authorSelect').value;
-  console.log(selectElement);
+  return document.getElementById("authorSelect").value;
 }
-
