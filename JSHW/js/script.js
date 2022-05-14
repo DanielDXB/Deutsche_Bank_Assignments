@@ -30,7 +30,7 @@ addRandomArticle.addEventListener("click", () => {
     '<div class="buttons-container"><button type="button" class="edit-delete">Edit</button><button type="button" class="edit-delete">Delete</button></div>'
   );
 
-  let imgTemplate = `<img src='${"https://picsum.photos/1280/720"}'/>`;
+  let imgTemplate = `<img src="https://picsum.photos/${1280}/${720}?dummy=${Math.floor(Math.random() * 100000)}" class="hero-image" alt="Random image"/>`;
   articleElement.insertAdjacentHTML("beforeend", imgTemplate);
 
   let textTemplate = `<div class="content-text"><p>${mussumIpsum}</p></div>`;
