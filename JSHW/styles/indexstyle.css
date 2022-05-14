@@ -309,4 +309,7 @@
     height: 60px;
     border: solid #9b9b9b 1px;
     text-decoration: none;
+    justify-content : center;
+    align-items : center;
+    font-size : 14px;
   }
