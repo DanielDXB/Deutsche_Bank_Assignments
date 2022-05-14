@@ -54,7 +54,7 @@ addRandomArticle.addEventListener("click", () => {
   `;
     if (
       document.getElementById("container").querySelectorAll("article").length <
-      3
+      4
     ) {
       articleElement.insertAdjacentHTML("beforeend", articleTemplate);
     } else {
@@ -100,7 +100,7 @@ addRandomArticle.addEventListener("click", () => {
   `;
     if (
       document.getElementById("container").querySelectorAll("article").length <
-      3
+      4
     ) {
       articleElement.insertAdjacentHTML("beforeend", articleTemplate);
     } else {
