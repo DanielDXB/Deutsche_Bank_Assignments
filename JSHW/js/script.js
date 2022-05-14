@@ -2,7 +2,7 @@ const modal_open = document.getElementById("open");
 const modal_cancel = document.getElementById("cancel");
 const modal_container = document.getElementById("modal_container");
 const addRandomArticle = document.getElementById("randomArticleGenerator");
-
+var numberOfClicks = 0;
 modal_open.addEventListener("click", () => {
   modal_container.classList.add("show");
 });
@@ -12,6 +12,9 @@ modal_cancel.addEventListener("click", () => {
 });
 
 addRandomArticle.addEventListener("click", () => {
+  numberOfClicks++;
+  console.log(numberOfClicks);
+
   const mussumIpsum = mIpsum({ pNum: 4 });
 
   let mainElement = document.querySelector("main");
@@ -36,4 +39,3 @@ addRandomArticle.addEventListener("click", () => {
   let textTemplate = `<div class="content-text"><p>${mussumIpsum}</p></div>`;
   articleElement.insertAdjacentHTML("beforeend", textTemplate);
 });
-

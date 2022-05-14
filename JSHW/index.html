@@ -53,18 +53,26 @@
         <div class="modal-content">
           <h2 class="title">Add/Edit new article</h2>
           <div class="form">
-            <input type="text" class="input" placeholder="Please enter title" />
-            <input type="text" class="input" placeholder="Please enter tag" />
+            <form action="/action_page.php">
+                <label for="cars">Choose an author:</label>
+                <select id="cars" name="cars">
+                  <option value="">Random Author</option>
+                  <option value="">Leanne Graham</option>
+                  <option value="saab">Ervin Howell</option>
+                  <option value="fiat">Clementine Bauch</option>
+                  <option value="audi">Patricia Lebsack</option>
+                  <option value="audi">Chelsey Dietrich</option>
+                  <option value="audi">Mrs. Dennis Schulist</option>
+                  <option value="audi">Kurtis Weissnat</option>
+                  <option value="audi">Nicholas Runolfsdottir V</option>
+                  <option value="audi">Glenna Reichert</option>
+                  <option value="audi">Clementina DuBuque</option>
+                </select>
+              </form>
             <input
               type="text"
               class="input"
-              placeholder="Please enter author"
-            />
-            <input type="text" class="input" placeholder="Please enter date" />
-            <input
-              type="text"
-              class="input url"
-              placeholder="Please enter image url"
+              placeholder="Please enter title"
             />
           </div>
           <textarea
