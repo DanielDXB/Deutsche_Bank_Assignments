@@ -52,7 +52,15 @@ addRandomArticle.addEventListener("click", () => {
       Math.random() * 100000
     )}" class="hero-image" alt="Random image"/><div class="content-text"><p>${mussumIpsum}</p></div>'
   `;
-    articleElement.insertAdjacentHTML("beforeend", articleTemplate);
+    if (
+      document.getElementById("container").querySelectorAll("article").length <
+      3
+    ) {
+      articleElement.insertAdjacentHTML("beforeend", articleTemplate);
+    } else {
+      paginationThree();
+      articleElement.insertAdjacentHTML("beforeend", articleTemplate);
+    }
   } else {
     const mussumIpsum = mIpsum({ pNum: 4 });
 
@@ -90,10 +98,22 @@ addRandomArticle.addEventListener("click", () => {
       Math.random() * 100000
     )}" class="hero-image" alt="Random image"/><div class="content-text"><p>${mussumIpsum}</p></div>'
   `;
-    articleElement.insertAdjacentHTML("beforeend", articleTemplate);
+    if (
+      document.getElementById("container").querySelectorAll("article").length <
+      3
+    ) {
+      articleElement.insertAdjacentHTML("beforeend", articleTemplate);
+    } else {
+      paginationThree();
+      articleElement.insertAdjacentHTML("beforeend", articleTemplate);
+    }
   }
 });
 
 function getOption() {
   return document.getElementById("authorSelect").value;
+}
+
+function paginationThree() {
+  document.getElementById("container").firstChild.remove();
 }
